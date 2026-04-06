@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import smile from "../assets/slider/smile.PNG";
-import banner3 from "../assets/slider/banner3.PNG";
+import banner3 from "../assets/slider/banner3.png";
 import img1 from "../assets/slider/img1.jpg";
 import img2 from "../assets/slider/img2.jpg";
 import img3 from "../assets/slider/img3.jpg";
