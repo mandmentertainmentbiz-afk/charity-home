@@ -141,6 +141,22 @@ export default function Home() {
       </section>
 
 
+      {/* CTA */}
+      <section className="text-white text-center py-20 px-6 bg-cover bg-center"
+  style={{ backgroundImage: `url(${smile})` }}
+>
+        <h2 className="text-4xl font-bold mb-6">
+          Be the Reason a Child Smiles Today
+        </h2>
+        <p className="mb-8 text-gray-200">
+          Your support can change lives forever.
+        </p>
+        <button className="bg-yellow-400 text-black px-8 py-4 rounded-xl font-bold shadow-xl hover:scale-105 transition">
+          Donate Now
+        </button>
+      </section>
+
+
     </div>
   );
 }

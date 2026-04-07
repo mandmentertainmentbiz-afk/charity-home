@@ -31,6 +31,7 @@ export default function Navbar() {
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
     { name: "Donate", path: "/donate" },
+    { name: "Login", path: "/login" },
   ];
 
   return (
