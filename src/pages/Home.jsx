@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-import smile from "../assets/slider/smile.PNG";
-import banner3 from "../assets/slider/banner3.PNG";
-import img1 from "../assets/slider/img1.jpg";
-import img2 from "../assets/slider/img2.jpg";
-import img3 from "../assets/slider/img3.jpg";
-
 const HeroSlider = () => {
-  const images = [banner3, img1, img2, img3];
+  const images = [
+    "/images/banner3.PNG",
+    "/images/img1.jpg",
+    "/images/img2.jpg",
+    "/images/img3.jpg",
+  ];
+
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -19,17 +19,20 @@ const HeroSlider = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen pt-24">
+    <section className="relative min-h-screen pt-24 overflow-hidden">
+      {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center transition-all duration-1000"
+        className="absolute inset-0 bg-cover bg-top md:bg-center bg-no-repeat transition-all duration-1000"
         style={{ backgroundImage: `url(${images[index]})` }}
       />
-      
 
+      {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/20" />
 
+      {/* Content */}
       <div className="relative z-10 flex items-center h-screen px-6 md:px-20">
         <motion.div
+          key={index}
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -83,7 +86,7 @@ export default function Home() {
         </div>
       </section>
 
-       {/* ABOUT */}
+      {/* ABOUT */}
       <section className="py-20 px-6 md:px-20 flex flex-col md:flex-row items-center gap-12">
         <motion.img
           initial={{ opacity: 0, x: -50 }}
@@ -110,41 +113,33 @@ export default function Home() {
         </motion.div>
       </section>
 
-     {/* WHAT WE DO */}
+      {/* WHAT WE DO */}
       <section className="text-center py-16 px-10">
         <h2 className="text-3xl font-bold mb-10">What We Do</h2>
 
-        <div className="flex flex-col md:flex-row justify-center gap-8">
-          <div className="bg-white p-8 rounded-xl shadow w-72">
-            <h3 className="text-xl font-bold mb-2">Care & Support</h3>
-            <p>Helping vulnerable individuals with essential care.</p>
-          </div>
-
-          <div className="bg-white p-8 rounded-xl shadow w-72">
-            <h3 className="text-xl font-bold mb-2">Education</h3>
-            <p>Providing access to learning and skills training.</p>
-          </div>
-        
-
-        
-          <div className="bg-white p-8 rounded-xl shadow w-72">
-            <h3 className="text-xl font-bold mb-2">Care & Support</h3>
-            <p>Helping vulnerable individuals with essential care.</p>
-          </div>
-
-          
-          <div className="bg-white p-8 rounded-xl shadow w-72">
-            <h3 className="text-xl font-bold mb-2">Care & Support</h3>
-            <p>Helping vulnerable individuals with essential care.</p>
-          </div>
-          </div>
+        <div className="flex flex-col md:flex-row justify-center gap-8 flex-wrap">
+          {[
+            "Care & Support",
+            "Education",
+            "Healthcare",
+            "Community Development",
+          ].map((title, i) => (
+            <div
+              key={i}
+              className="bg-white p-8 rounded-xl shadow w-72"
+            >
+              <h3 className="text-xl font-bold mb-2">{title}</h3>
+              <p>Helping vulnerable individuals with essential support.</p>
+            </div>
+          ))}
+        </div>
       </section>
 
-
       {/* CTA */}
-      <section className="text-white text-center py-20 px-6 bg-cover bg-center"
-  style={{ backgroundImage: `url(${smile})` }}
->
+      <section
+        className="text-white text-center py-20 px-6 bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/smile.PNG')" }}
+      >
         <h2 className="text-4xl font-bold mb-6">
           Be the Reason a Child Smiles Today
         </h2>
@@ -155,8 +150,6 @@ export default function Home() {
           Donate Now
         </button>
       </section>
-
-
     </div>
   );
 }
