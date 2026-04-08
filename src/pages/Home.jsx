@@ -19,10 +19,10 @@ const HeroSlider = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen pt-24 overflow-hidden">
+    <section className=" min-h-screen pt-24 overflow-hidden">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-top md:bg-center bg-no-repeat transition-all duration-1000"
+        className="absolute inset-0 bg-contain bg-no-repeat bg-center md:bg-cover transition-all duration-1000"
         style={{ backgroundImage: `url(${images[index]})` }}
       />
 
